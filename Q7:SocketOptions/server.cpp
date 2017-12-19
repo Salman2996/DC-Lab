@@ -60,7 +60,7 @@ int main(int argc, char const *argv[])
     					int l_onoff, l_linger;
   					} l;
 
-  					sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+  					optionSocket = socket(AF_INET, SOCK_DGRAM, 0);
 
 					optlen = sizeof(l);
   					res = getsockopt(sockfd, SOL_SOCKET, SO_LINGER, &l, &optlen);
@@ -139,7 +139,7 @@ int main(int argc, char const *argv[])
 
 				case '5': // TCP_NODELAY
 					cout<<"\nTCP_NODELAY\n";
-					sockfd = socket(AF_INET, SOCK_STREAM, 0);
+					optionSocket = socket(AF_INET, SOCK_STREAM, 0);
   					
   					optlen = sizeof(flag);
   					res = getsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, &flag, &optlen);
